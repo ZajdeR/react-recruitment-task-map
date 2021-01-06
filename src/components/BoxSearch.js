@@ -1,11 +1,11 @@
-import InputSearch from './InputSearch';
-import ButtonSearch from './ButtonSearch';
+import BaseInput from './BaseInput';
+import BaseButton from './BaseButton';
 
 function BoxSearch() {
   return (
     <div className="col-span-2 box-border-rounded">
-      <InputSearch />
-      <ButtonSearch />
+      <BaseInput />
+      <BaseButton />
     </div>
   );
 }
