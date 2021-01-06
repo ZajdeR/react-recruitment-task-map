@@ -23,10 +23,6 @@ export default class Main extends React.Component {
   }
 
   async componentDidMount() {
-    if (this.state.userIp && this.state.userLocation) {
-      return;
-    }
-
     const detectedIp = await getClientIp();
     const detectedLocation = await getIpLocation(detectedIp);
 
