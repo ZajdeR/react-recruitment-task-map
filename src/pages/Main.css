@@ -1,0 +1,6 @@
+.grid {
+  grid-template-rows: 1fr 100px 1fr;
+}
+.box-border-rounded {
+  @apply border border-black rounded m-4;
+}
