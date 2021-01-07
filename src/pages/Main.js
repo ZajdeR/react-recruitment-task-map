@@ -41,7 +41,12 @@ export default class Main extends React.Component {
     const detectLocation = await getIpLocation(this.state.searchText);
 
     this.setState((state) => {
-      const searches = state.searches.concat(decorateLocation(detectLocation));
+      const searches = [
+        {
+          address: decorateLocation(detectLocation),
+          ip: state.searchText,
+        },
+      ].concat(state.searches);
 
       return { searches };
     });
@@ -63,7 +68,11 @@ export default class Main extends React.Component {
           changeMethod={this.handleChange}
         />
         <Map />
-        <BoxInformation label="Last search data" />
+        <BoxInformation
+          label="Last search data"
+          ip={this.state.searches[0]?.ip}
+          location={this.state.searches[0]?.address}
+        />
       </div>
     );
   }
