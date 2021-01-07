@@ -39,13 +39,18 @@ export default class Main extends React.Component {
   async handleSearch(event) {
     event.preventDefault();
     const detectLocation = await getIpLocation(this.state.searchText);
-    console.log(detectLocation);
+
+    this.setState((state) => {
+      const searches = state.searches.concat(decorateLocation(detectLocation));
+
+      return { searches };
+    });
   }
 
   render() {
     return (
       <div className="grid grid-cols-3 h-screen">
-        <ListSearch />
+        <ListSearch searches={this.state.searches} />
         <Map />
         <BoxInformation
           ip={this.state.userIp}
