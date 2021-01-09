@@ -7,6 +7,8 @@ import './Main.css';
 import { getClientIp } from '../helpers/getClientIp';
 import { getIpLocation } from '../helpers/getIpLocation';
 import { decorateLocation } from '../helpers/decorateLocation';
+import { validateIpAddress } from '../helpers/validateIpAddress';
+import { toast } from 'react-toastify';
 
 function Main() {
   const [userIp, setUserIp] = useState(null);
@@ -28,6 +30,11 @@ function Main() {
   };
   const handleSearch = async (e) => {
     e.preventDefault();
+    if (!validateIpAddress(searchText)) {
+      toast.error('Please enter valid IP address');
+      return;
+    }
+
     const detectedLocation = await getIpLocation(searchText);
     const newSearches = [
       {
