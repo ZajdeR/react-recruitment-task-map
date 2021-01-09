@@ -1,7 +1,7 @@
 import BaseInput from './BaseInput';
 import BaseButton from './BaseButton';
 
-function BoxSearch(props) {
+function FormSearch(props) {
   return (
     <form className="col-span-2" onSubmit={props.searchMethod}>
       <div className=" flex justify-around items-center">
@@ -17,4 +17,4 @@ function BoxSearch(props) {
   );
 }
 
-export default BoxSearch;
+export default FormSearch;
