@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 function Map({ center }) {
@@ -20,9 +20,10 @@ function Map({ center }) {
   }, []);
 
   const containerStyle = {
-    width: 'calc(100% - 2rem)',
+    width: '100%',
     height: 'calc(100% - 2rem)',
-    margin: '1rem',
+    margin: '1rem 0',
+    borderRadius: '0.25rem',
   };
 
   return isLoaded ? (

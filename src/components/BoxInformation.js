@@ -1,15 +1,11 @@
 import PropTypes from 'prop-types';
+import ListItem from './ListItem';
 
-function BoxInformation(props) {
+function BoxInformation({ address, ip, label }) {
   return (
     <div className="box-border-rounded flex flex-col p-10">
-      <strong className="text-2xl mb-5 text-center">{props.label}</strong>
-      <div>
-        <strong>Ip:</strong> {props.ip || 'Not found'}
-      </div>
-      <div>
-        <strong>Location:</strong> {props.location || 'Not found'}
-      </div>
+      <strong className="text-2xl mb-5 text-center">{label}</strong>
+      <ListItem address={address} ip={ip} />
     </div>
   );
 }
