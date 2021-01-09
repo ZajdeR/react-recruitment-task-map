@@ -1,17 +1,7 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
-const containerStyle = {
-  width: '400px',
-  height: '400px',
-};
-
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-};
-
-function Map() {
+function Map({ center }) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyCy3ZX0erJmctenAJBsLIzGdClZOrL2Ux4',
@@ -29,18 +19,22 @@ function Map() {
     setMap(null);
   }, []);
 
+  const containerStyle = {
+    width: 'calc(100% - 2rem)',
+    height: 'calc(100% - 2rem)',
+    margin: '1rem',
+  };
+
   return isLoaded ? (
-    <div className="box-border-rounded">
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-      </GoogleMap>
-    </div>
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={center}
+      zoom={10}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+      {/* Child components, such as markers, info windows, etc. */}
+    </GoogleMap>
   ) : null;
 }
 

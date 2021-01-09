@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function BoxInformation(props) {
   return (
-    <div className="border border-black rounded m-4 flex flex-col p-10">
+    <div className="box-border-rounded flex flex-col p-10">
       <strong className="text-2xl mb-5 text-center">{props.label}</strong>
       <div>
         <strong>Ip:</strong> {props.ip || 'Not found'}
