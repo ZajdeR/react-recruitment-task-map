@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { Marker, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 function Map({ center }) {
   const { isLoaded } = useJsApiLoader({
@@ -34,7 +34,7 @@ function Map({ center }) {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      {/* Child components, such as markers, info windows, etc. */}
+      <Marker position={center} />
     </GoogleMap>
   ) : null;
 }
